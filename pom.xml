@@ -8,7 +8,7 @@
 		<version>2.3.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example.springframework.demo</groupId>
+	<groupId>com.centene.shared.provider</groupId>
 	<artifactId>api-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -19,7 +19,7 @@
 	</properties>
 	<modules>
 		<module>apigateway-service</module>
-		<module>message-service</module>
+		<module>war-provider</module>
 	</modules>
 	<dependencies>
 		<dependency>
