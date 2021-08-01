@@ -18,21 +18,21 @@ pipeline {
     }
       stage('Build'){
         steps{
-          sh 'mvn -B -DskipTests clean package'
+          sh 'mvn clean install'
         }
       }
-      stage('Test'){
-        steps{
-          sh 'mvn test'
-        }
-      }
+//       stage('Test'){
+//         steps{
+//           sh 'mvn test'
+//         }
+//       }
 
 
 
       stage('Sonar qube analysis'){
         steps{
             withSonarQubeEnv('sonar-6'){
-          sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+          sh 'mvn sonar:sonar'
         }
         }
 
