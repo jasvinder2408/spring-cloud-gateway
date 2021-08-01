@@ -3,8 +3,8 @@ pipeline {
 
   tools {
     // Install the Maven version configured as "M3" and add it to the path.
-    maven "Maven 3.3.9"
-    jdk 'jdk8'
+    maven "M3"
+
   }
 
   stages {
@@ -29,20 +29,23 @@ pipeline {
 
 
       stage('Sonar qube analysis'){
-        withSonarQubeEnv('sonar-6'){
+        steps{
+            withSonarQubeEnv('sonar-6'){
           sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
         }
-      }
-
-
-      post {
-        // If Maven was able to run the tests, even if some of the test
-        // failed, record the test results and archive the jar file.
-        success {
-          junit '**/target/surefire-reports/TEST-*.xml'
-          archiveArtifacts 'target/*.jar'
         }
+
       }
+
+
+      // post {
+      //   // If Maven was able to run the tests, even if some of the test
+      //   // failed, record the test results and archive the jar file.
+      //   success {
+      //     junit '**/target/surefire-reports/TEST-*.xml'
+      //     archiveArtifacts 'target/*.jar'
+      //   }
+      // }
 
 
   }
