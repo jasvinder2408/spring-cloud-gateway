@@ -3,8 +3,10 @@ pipeline {
 
   tools {
     // Install the Maven version configured as "M3" and add it to the path.
-    maven 'Maven3'
-    jdk 'JDK 1.8'
+//     maven 'Maven3'
+//     jdk 'JDK 1.8'
+ maven 'MAVEN_HOME'
+      jdk 'JAVA_HOME'
 
   }
 
