@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.web.client.RestTemplate;
 
 
 //@RunWith(MockitoJUnitRunner.class)
@@ -20,6 +21,8 @@ public class OrderServiceTest {
     private OrderRepository orderRepository;
     //@Mock
     private OrderService orderService;
+    @Mock
+    RestTemplate restTemplate;
 
     @Before
     public void init() {
@@ -27,7 +30,7 @@ public class OrderServiceTest {
         orderService=new OrderService();
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void saveOrderTest(){
         Order order=new Order();
         Payment payment=new Payment();
