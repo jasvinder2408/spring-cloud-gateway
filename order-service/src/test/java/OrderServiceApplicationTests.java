@@ -1,5 +1,3 @@
-package com.jasvinder.order;
-
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
